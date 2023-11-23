@@ -1,9 +1,11 @@
 from .pages.product_page import ProductPage
+from .pages.basket_page import BasketPage
 from .pages.locators import ProductPageLocators
 import pytest
 
 
 link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+link2 = 'http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/'
 
 # @pytest.mark.parametrize('promo_offer', [x for x in range(10)])
 # def test_guest_can_add_product_to_basket(browser, promo_offer):
@@ -50,3 +52,9 @@ def test_guest_should_go_to_login_page_from_product_page(browser):
     page = ProductPage(browser, link)
     page.open()
     page.go_to_login_page()
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+    page = BasketPage(browser, link2)
+    page.open()
+    page.go_to_basket_page()
+    page.basket_should_be_empty()
