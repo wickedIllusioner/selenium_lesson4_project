@@ -45,3 +45,7 @@ class ProductPage(BasePage):
         alertinner_text = self.browser.find_element(*ProductPageLocators.INNER_ALERT_BOOK_TITLE).text
 
         assert book_title == alertinner_text, 'Book titles do not match'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
