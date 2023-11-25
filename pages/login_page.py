@@ -2,11 +2,11 @@ from .base_page import BasePage
 from .locators import LoginPageLocators
 from random_word import RandomWords
 
+# Modules for password generator
 import secrets
 import string
 import random
-# from selenium.webdriver.support.wait import WebDriverWait
-# from selenium.webdriver.support import expected_conditions as EC
+
 
 
 class LoginPage(BasePage):
